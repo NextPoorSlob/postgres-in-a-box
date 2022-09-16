@@ -51,6 +51,24 @@ To Stop:
 docker-compose down
 ```
 
+### GNU Make
+
+This method makes use of GNU Make to start and stop the database.
+
+To Start:
+```shell
+make up
+```
+To Stop, which just halts the container, leaving the container intact to restart:
+```shell
+make stop
+```
+
+To end, which halts the container and removes it:
+```shell
+make down
+```
+
 ## Variables Used
 The project uses the following variables.
 
