@@ -36,12 +36,29 @@ docker run -d \
 	postgres
 ```
 
+### Docker Compose
+
+The vanilla docker-compose.yml file works with Docker Compose.  Because the file specifies a volume, any data written 
+to the database is persistent.
+
+To Start:
+```shell
+docker-compose up
+```
+
+To Stop:
+```shell
+docker-compose down
+```
+
 ## Variables Used
 The project uses the following variables.
 
 | Name              | Purpose        | Value    | Build | Compose | Make |
 |-------------------|----------------|----------|:-----:|:-------:|:----:|
-| name              | database name  | postgres |   X   |    X    |  X   |
+| name              | database name  | postgres |   X   |         |      |
 | POSTGRES_PASSWORD | Admin password | postgres |   X   |    X    |  X   |
+| POSTGRES_USER     | Admin username | postgres |   X   |    X    |  X   |
+| POSTGRES_DB       | database name  | postgres |       |    X    |  X   |
 
 
