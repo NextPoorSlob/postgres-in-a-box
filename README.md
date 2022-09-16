@@ -53,21 +53,20 @@ docker-compose down
 
 ### GNU Make
 
-This method makes use of GNU Make to start and stop the database.
+Uses the GNU Make utility to control the Docker containers.
 
-To Start:
-```shell
-make up
-```
-To Stop, which just halts the container, leaving the container intact to restart:
-```shell
-make stop
-```
+**Commands**
 
-To end, which halts the container and removes it:
-```shell
-make down
-```
+Syntax: **make _command_**
+
+| Command | Action                                                      |
+|---------|-------------------------------------------------------------|
+| up      | Run the Docker Compose file.                                |
+| stop    | Stop the running containers, leaving the containers intact. |
+| down    | Stop and destroy the containers, etc.                       |
+| clear   | Destroy the volume containing the database.                 |
+| reset   | Stop and destroy the containers and the database volume.    |
+
 
 ## Variables Used
 The project uses the following variables.
