@@ -1,14 +1,16 @@
+include ./Makefile.env.mk
+
 up:
-	docker-compose up --remove-orphans -d
+	@$(ENV_VARS) docker-compose up --remove-orphans -d
 
 down:
-	docker-compose down
+	@$(ENV_VARS) docker-compose down
 
 stop:
-	docker-compose stop
+	@$(ENV_VARS) docker-compose stop
 
 clear:
-	docker volume rm "postgresql-in-a-box_postgres_data"
+	docker volume rm "${CONTAINER_PREFIX}_${DB_VOLUME}"
 
 reset: down clear
 

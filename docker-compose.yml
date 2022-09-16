@@ -1,18 +1,18 @@
 # This make the data persistent.
 volumes:
-  postgres_data:
+  postgres-data:
     driver: local
 
 services:
   postgres:
     image: 'postgres:alpine'
     volumes:
-      - "postgres_data:/var/lib/postgresql/data"
+      - "postgres-data:/var/lib/postgresql/data"
     restart: 'always'
     ports:
-      - "5432:5432"
+      - "${DB_EXPOSED_PORT:-5432}:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_DB_NAME:-postgres}
 

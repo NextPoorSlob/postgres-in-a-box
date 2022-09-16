@@ -51,9 +51,16 @@ To Stop:
 docker-compose down
 ```
 
+To reset the data by dropping the volume:
+```shell
+docker volume rm "postgresql-in-a-box_postgres-data"
+```
+Note that this is a _docker_ command, not a _docker-compose_ command!
+
 ### GNU Make
 
-Uses the GNU Make utility to control the Docker containers.
+Uses the GNU Make utility to control the Docker containers.  Note that this only works on Windows machines with a WSL2
+environment installed.
 
 **Commands**
 
@@ -64,18 +71,7 @@ Syntax: **make _command_**
 | up      | Run the Docker Compose file.                                |
 | stop    | Stop the running containers, leaving the containers intact. |
 | down    | Stop and destroy the containers, etc.                       |
-| clear   | Destroy the volume containing the database.                 |
+| clear   | Remove the volume containing the database.                  |
 | reset   | Stop and destroy the containers and the database volume.    |
 
-
-## Variables Used
-The project uses the following variables.
-
-| Name              | Purpose        | Value    | Build | Compose | Make |
-|-------------------|----------------|----------|:-----:|:-------:|:----:|
-| name              | database name  | postgres |   X   |         |      |
-| POSTGRES_PASSWORD | Admin password | postgres |   X   |    X    |  X   |
-| POSTGRES_USER     | Admin username | postgres |   X   |    X    |  X   |
-| POSTGRES_DB       | database name  | postgres |       |    X    |  X   |
-
-
+These command names are not magical.  You can change them in the Makefile.
